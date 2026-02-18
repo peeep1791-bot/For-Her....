@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Preciousss... 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 40px;
+    font-size: 2em;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    margin: 20px 10px;
+    padding: 20px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.card:active {
+    transform: scale(0.95);
+}
+
+button {
+    background: white;
+    color: #ff4d88;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+.heart {
+    position: fixed;
+    font-size: 20px;
+    animation: float 4s linear forwards;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-600px); opacity: 0; }
+}
+
+.popup {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    color: #ff4d88;
+    padding: 25px;
+    border-radius: 25px 25px 0 0;
+    transition: 0.4s;
+}
+
+.popup.show {
+    bottom: 0;
+}
+
+.close-btn {
+    margin-top: 15px;
+    background: #ff4d88;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>To My Precious 💖</h1>
+    <p>You are my happiness, my peace, my everything.</p>
+
+    <div class="card">
+        <h2>🌸 Unnakagaaa</h2>
+        <button onclick="showLove()">Open 💌</button>
+    </div>
+
+    <div class="card">
+        <h2>💖 Hmmm........</h2>
+        <p>Every tap creates a heart for you...</p>
+    </div>
+
+    <div class="card">
+        <h2>💗 Special Song</h2>
+        <button onclick="playMusic()">Play Music</button>
+        <audio id="song" src="paatu.mp3"></audio>
+    </div>
+</div>
+
+<div class="popup" id="lovePopup">
+    <h2>For You 💞</h2>
+    <p>
+        You are the best thing that ever happened to me.
+        I’m grateful for every laugh, every moment,
+        and every memory we shared.
+        I’ll always choose you.
+	I love you alwaysss...
+    </p>
+    <button class="close-btn" onclick="closeLove()">Close</button>
+</div>
+
+<script>
+function showLove() {
+    document.getElementById("lovePopup").classList.add("show");
+}
+
+function closeLove() {
+    document.getElementById("lovePopup").classList.remove("show");
+}
+
+document.addEventListener("click", function(e) {
+    let heart = document.createElement("div");
+    heart.innerHTML = "💖";
+    heart.className = "heart";
+    heart.style.left = e.clientX + "px";
+    heart.style.top = e.clientY + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 4000);
+});
+
+function playMusic() {
+    document.getElementById("song").play();
+}
+</script>
+
+</body>
+</html>
